@@ -1,0 +1,27 @@
+{
+    "name": "js-lessons",
+    "version": "1.0.0",
+    "description": "Recreating Lodash functions to get better at programming and testing",
+    "main": "index.js",
+    "scripts": {
+        "start": "mocha --require babel-core/register --recursive ./test/ || true"
+    },
+    "keywords": [
+        "mocha",
+        "chai",
+        "JavaScript",
+        "training"
+    ],
+    "author": "Tamer Elsayed",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-preset-env": "^1.7.0",
+        "chai": "^4.1.2",
+        "mocha": "^5.2.0"
+    },
+    "dependencies": {
+        "lodash": "^4.17.10"
+    }
+}
