@@ -10,8 +10,7 @@ npm start
 
 ### Lodash "Array" functions
 
--   Lodash.chunk **[done/working]**
--   Lodash.chunk **use my slice instead of js slice**
--   Lodash.slice
--   Lodash.compact
+-   Lodash.chunk **[done]**
+-   Lodash.slice **[done]**
+-   Lodash.compact **[done]**
 -   Lodash.concat

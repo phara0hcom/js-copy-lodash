@@ -25,19 +25,37 @@ export const chunk = (arr, chunkSize) => {
 };
 
 //Creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
-export const compact = arr => {};
-
-// Creates a slice of array from start up to, but not including, end.
-// Note: This method is used instead of Array#slice to ensure dense arrays are returned.
-export const slice = (arr, start = 0, end) => {
+export const compact = arr => {
+    // Arguments
+    // array (Array): The array to compact.
+    let newArr = [];
     const length = arr == null ? 0 : arr.length;
     if (!length) {
         return [];
     }
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]) newArr = [...newArr, arr[i]];
+    }
+
+    // Returns
+    // (Array): Returns the new array of filtered values.
+    return newArr;
+};
+
+// Creates a slice of array from start up to, but not including, end.
+// Note: This method is used instead of Array#slice to ensure dense arrays are returned.
+export const slice = (arr, start = 0, end) => {
     // Arguments
     // array (Array): The array to slice.
     // [start=0] (number): The start position.
     // [end=array.length] (number): The end position.
+    const length = arr == null ? 0 : arr.length;
+    if (!length) {
+        return [];
+    }
+    end = !end || end > arr.length ? arr.length : end;
+
     let newArr = [];
 
     for (let i = start; i < end; i++) {
