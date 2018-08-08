@@ -37,7 +37,6 @@ export const compact = arr => {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i]) newArr = [...newArr, arr[i]];
     }
-
     // Returns
     // (Array): Returns the new array of filtered values.
     return newArr;
@@ -50,18 +49,16 @@ export const slice = (arr, start = 0, end) => {
     // array (Array): The array to slice.
     // [start=0] (number): The start position.
     // [end=array.length] (number): The end position.
+    let newArr = [];
     const length = arr == null ? 0 : arr.length;
     if (!length) {
         return [];
     }
     end = !end || end > arr.length ? arr.length : end;
 
-    let newArr = [];
-
     for (let i = start; i < end; i++) {
         newArr = [...newArr, arr[i]];
     }
-
     return newArr;
     // Returns
     // (Array): Returns the slice of array.
