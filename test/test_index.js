@@ -4,7 +4,11 @@ import { expect } from 'chai';
 import _ from 'lodash';
 import * as tamer_ from '../';
 
-const myFuncList = ['chunk', 'compact', 'slice'];
+const myFuncList = [
+    { name: 'chunk', parameters: [4] },
+    { name: 'compact', parameters: [4] },
+    { name: 'slice', parameters: [4, 12] }
+];
 
 const testObject = {
     testInt: 1234567890,
@@ -22,10 +26,18 @@ const testObject = {
 myFuncList.forEach(el => {
     for (const key in testObject) {
         if (testObject.hasOwnProperty(key)) {
-            describe(`test Tamer's ${el.toUpperCase()} function ( ${key} , 4 )`, function() {
-                const lodashChunk = _[el](testObject[key], 4, 12);
+            describe(`test Tamer's ${el.name.toUpperCase()} function ( ${key} , ${el.parameters.join(
+                ', '
+            )} )`, function() {
+                const lodashChunk = _[el.name](
+                    testObject[key],
+                    ...el.parameters
+                );
                 //console.log({ ['_.Chunk ' + key]: lodashChunk });
-                const tamerChunk = tamer_[el](testObject[key], 4, 12);
+                const tamerChunk = tamer_[el.name](
+                    testObject[key],
+                    ...el.parameters
+                );
                 //console.log({ ['t_Chunk ' + key]: tamerChunk });
                 it('return should be an Array', function() {
                     expect(tamerChunk).to.be.a('array');
