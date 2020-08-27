@@ -2,7 +2,7 @@
 
 import { expect } from 'chai';
 import _ from 'lodash';
-import * as tamer_ from '../';
+import * as tamer_ from '../src';
 
 const myFuncList = [
     { name: 'chunk', parameters: [4] },

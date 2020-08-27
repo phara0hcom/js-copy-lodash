@@ -1,0 +1,2 @@
+color: true
+require: "@babel/register"
